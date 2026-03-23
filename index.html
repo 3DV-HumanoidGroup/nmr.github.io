@@ -194,30 +194,71 @@
       color: #555;
     }
 
-    .intro-video-placeholder {
-      margin: 1rem auto 0.2rem;
-      max-width: 920px;
-      border: 1px dashed #bcc7d5;
-      border-radius: 12px;
-      background: #fbfcfe;
-      min-height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1.2rem;
+    .coming-note {
+      color: var(--muted-text);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
     }
 
-    .intro-video-placeholder .placeholder-title {
+    .reference-note {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    .more-results-toggle {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-large);
+      box-shadow: 0 8px 28px rgba(19, 44, 66, 0.06);
+      padding: 0.4rem 1rem 1rem;
+    }
+
+    .more-results-toggle summary {
+      cursor: pointer;
+      list-style: none;
       font-family: 'Google Sans', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #0f766e;
+      padding: 0.9rem 0.2rem 0.8rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+
+    .more-results-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .more-results-toggle summary::after {
+      content: 'Show';
+      float: right;
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .more-results-toggle[open] summary::after {
+      content: 'Hide';
+    }
+
+    .more-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .more-group-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #334155;
-      margin-bottom: 0.25rem;
+      margin: 0.3rem 0 0.8rem;
     }
 
-    .intro-video-placeholder .placeholder-subtitle {
-      color: #64748b;
-      font-size: 0.95rem;
+    .more-group {
+      margin-bottom: 1.35rem;
     }
 
     @media (max-width: 768px) {
@@ -232,6 +273,10 @@
       .main-wrap {
         padding-left: 0.9rem;
         padding-right: 0.9rem;
+      }
+
+      .more-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -273,118 +318,19 @@
         <a class="button link-pill is-disabled" role="button" aria-disabled="true">
           <span class="icon"><i class="fas fa-database"></i></span><span>HuggingFace (Coming soon)</span>
         </a>
-        <a href="#" class="button link-pill">
-          <span class="icon"><i class="fas fa-play"></i></span><span>Video (Incoming)</span>
-        </a>
-      </div>
-
-      <div class="intro-video-placeholder" aria-label="overview video placeholder">
-        <div>
-          <p class="placeholder-title">Overview Video (Coming Soon)</p>
-          <p class="placeholder-subtitle">总介绍视频待插入，后续将在此位置替换为正式视频。</p>
-        </div>
       </div>
     </section>
 
     <section class="section" id="gallery">
       <div class="container is-max-desktop">
-        <h2 class="title is-3 section-title">faster converge:trained for 1000 iteration with beyondmimic</h2>
+        <h2 class="title is-3 section-title">Faster Converge: trained for 1000 iteration with BeyondMimic<sup>[1]</sup>
+        </h2>
+        <p class="coming-note">Content is being prepared and will be inserted here soon.</p>
 
-        <h3 class="motion-title">floating_feet</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/floating_feet/007294.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/floating_feet/035716.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/floating_feet/038793.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/floating_feet/044663.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="motion-title">joint_jump</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/joint_jump/001946.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/joint_jump/002778.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/joint_jump/035619.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/joint_jump/040223.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="motion-title">self_intersection</h3>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/self_intersection/002853.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/self_intersection/007842.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/self_intersection/016586.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="content-card">
-              <video autoplay loop muted playsinline>
-                <source src="static/videos/self_intersection/014667.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
+        <h3 class="motion-title">Floating feet</h3>
+        <h3 class="motion-title">Joint jump</h3>
+        <h3 class="motion-title">Self intersection</h3>
+        <p class="reference-note">[1] BeyondMimic.</p>
       </div>
     </section>
 
@@ -490,6 +436,92 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="more-results">
+      <div class="container is-max-desktop">
+        <details class="more-results-toggle">
+          <summary>More Results</summary>
+
+          <div class="more-group">
+            <h3 class="more-group-title">Floating feet</h3>
+            <div class="more-grid">
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/floating_feet/007294.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/floating_feet/035716.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/floating_feet/038793.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/floating_feet/044663.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="more-group">
+            <h3 class="more-group-title">Joint jump</h3>
+            <div class="more-grid">
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/joint_jump/001946.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/joint_jump/002778.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/joint_jump/035619.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/joint_jump/040223.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="more-group">
+            <h3 class="more-group-title">Self intersection</h3>
+            <div class="more-grid">
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/self_intersection/002853.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/self_intersection/007842.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/self_intersection/016586.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="content-card more-video-item">
+                <video autoplay loop muted playsinline>
+                  <source src="static/videos/self_intersection/014667.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
 
