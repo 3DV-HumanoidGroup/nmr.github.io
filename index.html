@@ -12,97 +12,131 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <style>
-    /* 全局颜色与排版 */
     :root {
-      --bg-color: #F8F6F0;
-      /* 截图中的暖色背景 */
-      --card-bg: #FFFFFF;
-      --text-main: #333333;
-      --radius-large: 16px;
+      --bg-color: #f7f7f4;
+      --card-bg: #ffffff;
+      --text-main: #1f2933;
+      --muted-text: #637381;
+      --line: #e7eaee;
+      --accent: #0f766e;
+      --accent-soft: #d1fae5;
+      --radius-large: 14px;
     }
 
     body {
       font-family: 'Noto Sans', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
+      line-height: 1.65;
     }
 
-    /* 顶部导航 */
-    .navbar {
-      background-color: rgba(248, 246, 240, 0.95);
-      backdrop-filter: blur(5px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    .main-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
     }
 
-    /* 沉浸式 Hero 区域 (带背景图覆盖) */
-    .hero-immersive {
-      position: relative;
-      background: url('https://via.placeholder.com/1920x1080/444/aaa?text=Background+Image+or+Video') center/cover no-repeat;
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .hero-overlay {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 3rem;
-      border-radius: var(--radius-large);
-      color: white;
+    .publication-hero {
+      padding: 2.2rem 0 1.2rem;
       text-align: center;
-      max-width: 900px;
-      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 2rem;
     }
 
-    .hero-overlay a {
-      color: inherit;
+    .publication-mark {
+      display: inline-flex;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      color: #065f46;
+      background: var(--accent-soft);
+      margin-bottom: 0.8rem;
     }
 
-    .hero-overlay .title {
-      color: white;
+    .publication-title {
       font-family: 'Google Sans', sans-serif;
       font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem !important;
     }
 
-    .hero-overlay .subtitle {
-      color: #e0e0e0;
-      font-size: 1.2rem;
+    .publication-subtitle {
+      color: #364152;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem !important;
     }
 
     .author-block {
-      margin: 0 8px;
+      margin: 0 6px;
       display: inline-block;
+      color: #111827;
     }
 
-    /* 圆角按钮 */
-    .button.is-rounded {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      transition: all 0.2s;
+    .author-list {
+      max-width: 980px;
+      margin: 0.3rem auto 0.7rem;
+      color: #111827;
+      font-size: 1.05rem;
+      line-height: 1.55;
     }
 
-    .button.is-rounded:hover {
-      background: rgba(255, 255, 255, 0.3);
+    .author-note {
+      color: #52606d;
+      font-size: 0.96rem;
+      margin-bottom: 0.2rem;
     }
 
-    /* 内容区域通用样式 */
+    .author-affiliation {
+      color: #52606d;
+      font-size: 0.96rem;
+      margin-bottom: 1rem;
+    }
+
+    .publication-buttons {
+      justify-content: center;
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem !important;
+    }
+
+    .link-pill {
+      border-radius: 999px;
+      border: 1px solid #d3dae3;
+      color: #1f2937;
+      background: #fff;
+      font-weight: 600;
+    }
+
+    .link-pill:hover {
+      border-color: #9eb0c5;
+      color: #0f172a;
+    }
+
+    .link-pill.is-disabled,
+    .link-pill.is-disabled:hover {
+      opacity: 0.6;
+      cursor: not-allowed;
+      border-color: #d3dae3;
+      color: #52606d;
+    }
+
     .section-title {
       font-family: 'Google Sans', sans-serif;
       font-weight: 700;
-      margin-bottom: 2rem !important;
+      margin-bottom: 1.3rem !important;
       color: var(--text-main);
+      border-left: 4px solid var(--accent);
+      padding-left: 0.7rem;
     }
 
-    /* 视频/内容卡片 */
     .content-card {
       background: var(--card-bg);
       border-radius: var(--radius-large);
       padding: 1rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 28px rgba(19, 44, 66, 0.06);
       margin-bottom: 2rem;
     }
 
@@ -116,7 +150,7 @@
     .card-caption {
       margin-top: 1rem;
       font-size: 0.95rem;
-      color: #555;
+      color: #556270;
       text-align: center;
       font-weight: 600;
     }
@@ -126,30 +160,32 @@
       font-size: 1.1rem;
       font-weight: 700;
       margin: 0 0 0.9rem;
-      color: #3f3f3f;
+      color: #334155;
     }
 
-    /* Method 区域双栏卡片 */
     .method-container {
       background: var(--card-bg);
       border-radius: var(--radius-large);
       padding: 2rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 28px rgba(19, 44, 66, 0.06);
     }
 
     .method-text-box {
-      background: var(--bg-color);
+      background: #f8fafc;
       padding: 1.5rem;
       border-radius: 8px;
       margin-bottom: 1rem;
+      border: 1px solid #e8edf3;
     }
 
-    /* Bibtex */
     .bibtex-box {
       background: var(--card-bg);
       border-radius: var(--radius-large);
       padding: 2rem;
       position: relative;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 28px rgba(19, 44, 66, 0.06);
     }
 
     .bibtex-box pre {
@@ -157,284 +193,323 @@
       padding: 0;
       color: #555;
     }
+
+    .intro-video-placeholder {
+      margin: 1rem auto 0.2rem;
+      max-width: 920px;
+      border: 1px dashed #bcc7d5;
+      border-radius: 12px;
+      background: #fbfcfe;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.2rem;
+    }
+
+    .intro-video-placeholder .placeholder-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 0.25rem;
+    }
+
+    .intro-video-placeholder .placeholder-subtitle {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .publication-title {
+        font-size: 2rem !important;
+      }
+
+      .publication-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .main-wrap {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+      }
+    }
   </style>
 </head>
 
-<body>
-
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="#" style="font-weight: bold; font-family: 'Google Sans';">
-        NMR
-      </a>
-    </div>
-    <div class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" href="#gallery">Performance Comparison</a>
-        <a class="navbar-item" href="#results">Real-world Experiment</a>
-        <a class="navbar-item" href="#method">Method</a>
-        <a class="navbar-item" href="#citation">Citation</a>
-      </div>
-    </div>
-  </nav>
-
-  <section class="hero-immersive">
-    <div class="hero-overlay">
-      <span class="tag is-dark is-rounded mb-3">PREPRINT</span>
+<body id="top">
+  <div class="main-wrap">
+    <section class="publication-hero">
+      <span class="publication-mark">PREPRINT</span>
       <h1 class="title is-1 publication-title">Make Tracking Easy</h1>
-      <h2 class="subtitle is-3">Neural Motion Retargeting for Humanoid Whole-body Control </h2>
+      <h2 class="publication-subtitle">Neural Motion Retargeting for Humanoid Whole-body Control </h2>
 
-      <div class="is-size-5 mb-2">
-        <span class="author-block">Qingrui Zhao<sup>1*</sup></span>
+      <div class="author-list">
+        <span class="author-block">Qingrui Zhao<sup>1</sup>,</span>
+        <span class="author-block">Kaiyue Yang<sup>1</sup>,</span>
+        <span class="author-block">Xiyu Wang<sup>1, 2</sup>,</span>
+        <span class="author-block">Shiqi Zhao<sup>1</sup>,</span>
+        <span class="author-block">Yi Lu<sup>1</sup>,</span>
+        <span class="author-block">Xinfang Zhang<sup>2</sup>,</span>
+        <span class="author-block">Wei Yin<sup>3</sup>,</span>
+        <span class="author-block">Qiu Shen<sup>1</sup>,</span>
+        <span class="author-block">Xiao-Xiao Long<sup>1*</sup>,</span>
+        <span class="author-block">Xun Cao<sup>1*</sup></span>
       </div>
-      <div class="is-size-6 mb-4" style="color: #bbb;">
-        <span><sup>1</sup>NJU</span> &nbsp;
-        <span><sup>*</sup>Equal contribution</span>
+      <div class="author-note"><sup>*</sup>Corresponding authors.</div>
+      <div class="author-affiliation">
+        <span><sup>1</sup>Nanjing University,</span>
+        <span><sup>2</sup>Huawei Technologies,</span>
+        <span><sup>3</sup>Horizon Robotics</span>
       </div>
 
-      <div class="buttons is-centered mt-5">
-        <a href="#" class="button is-rounded">
+      <div class="buttons publication-buttons">
+        <a href="#" class="button link-pill">
           <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
         </a>
-        <a href="#" class="button is-rounded">
+        <a href="#" class="button link-pill">
           <span class="icon"><i class="ai ai-arxiv"></i></span><span>ArXiv</span>
         </a>
-        <a href="#" class="button is-rounded">
-          <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+        <a class="button link-pill is-disabled" role="button" aria-disabled="true">
+          <span class="icon"><i class="fas fa-database"></i></span><span>HuggingFace (Coming soon)</span>
         </a>
-        <a href="#" class="button is-rounded">
+        <a href="#" class="button link-pill">
           <span class="icon"><i class="fas fa-play"></i></span><span>Video (Incoming)</span>
         </a>
       </div>
-    </div>
-  </section>
 
-  <section class="section" id="gallery">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 section-title">Performance Comparison</h2>
+      <div class="intro-video-placeholder" aria-label="overview video placeholder">
+        <div>
+          <p class="placeholder-title">Overview Video (Coming Soon)</p>
+          <p class="placeholder-subtitle">总介绍视频待插入，后续将在此位置替换为正式视频。</p>
+        </div>
+      </div>
+    </section>
 
-      <h3 class="motion-title">floating_feet</h3>
-      <div class="columns is-multiline">
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/floating_feet/007294.mp4" type="video/mp4">
-            </video>
+    <section class="section" id="gallery">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 section-title">faster converge:trained for 1000 iteration with beyondmimic</h2>
+
+        <h3 class="motion-title">floating_feet</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/floating_feet/007294.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/floating_feet/035716.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/floating_feet/038793.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/floating_feet/044663.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/floating_feet/035716.mp4" type="video/mp4">
-            </video>
+
+        <h3 class="motion-title">joint_jump</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/joint_jump/001946.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/joint_jump/002778.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/joint_jump/035619.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/joint_jump/040223.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/floating_feet/038793.mp4" type="video/mp4">
-            </video>
+
+        <h3 class="motion-title">self_intersection</h3>
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/self_intersection/002853.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-        </div>
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/floating_feet/044663.mp4" type="video/mp4">
-            </video>
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/self_intersection/007842.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/self_intersection/016586.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="content-card">
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/self_intersection/014667.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <h3 class="motion-title">joint_jump</h3>
-      <div class="columns is-multiline">
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/joint_jump/001946.mp4" type="video/mp4">
-            </video>
+    <section class="section" id="results">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 section-title">less error, better real-world performance</h2>
+
+        <div class="content-card">
+          <h3 class="motion-title">Motion 1</h3>
+          <div class="columns">
+            <div class="column is-6">
+              <p class="card-caption">GMR</p>
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/real/002778_GMR_real.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-6">
+              <p class="card-caption">NMR</p>
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/real/002778_NMR_real.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/joint_jump/002778.mp4" type="video/mp4">
-            </video>
+
+        <div class="content-card">
+          <h3 class="motion-title">Motion 2</h3>
+          <div class="columns">
+            <div class="column is-6">
+              <p class="card-caption">GMR</p>
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/real/002853_GMR_real.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-6">
+              <p class="card-caption">NMR</p>
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/real/002853_NMR_real.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/joint_jump/035619.mp4" type="video/mp4">
-            </video>
+
+        <div class="content-card">
+          <h3 class="motion-title">Motion 3</h3>
+          <div class="columns">
+            <div class="column is-6">
+              <p class="card-caption">GMR</p>
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/real/007294_GMR_real.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-6">
+              <p class="card-caption">NMR</p>
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/real/007294_NMR_real.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/joint_jump/040223.mp4" type="video/mp4">
-            </video>
+
+        <div class="content-card">
+          <h3 class="motion-title">Motion 4</h3>
+          <div class="columns">
+            <div class="column is-6">
+              <p class="card-caption">GMR</p>
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/real/040223_GMR_real.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-6">
+              <p class="card-caption">NMR</p>
+              <video autoplay loop muted playsinline>
+                <source src="static/videos/real/040223_NMR_real.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <h3 class="motion-title">self_intersection</h3>
-      <div class="columns is-multiline">
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/self_intersection/002853.mp4" type="video/mp4">
-            </video>
+    <section class="section" id="method">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 section-title">Method</h2>
+        <div class="method-container columns is-vcentered">
+          <div class="column is-7">
+            <img src="https://via.placeholder.com/800x600.png?text=Method+Architecture" alt="Method architecture">
           </div>
-        </div>
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/self_intersection/007842.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/self_intersection/016586.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <div class="column is-6">
-          <div class="content-card">
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/self_intersection/014667.mp4" type="video/mp4">
-            </video>
+          <div class="column is-5">
+            <div class="method-text-box">
+              <h4 class="title is-6 mb-2" style="color: #d97706;">PRE-TRAINING</h4>
+              <p class="is-size-7">A unified base policy is trained via DAgger-based Flow Matching to aggregate diverse
+                motion priors from different motion tracking experts.</p>
+            </div>
+            <div class="method-text-box">
+              <h4 class="title is-6 mb-2" style="color: #d97706;">POST-TRAINING</h4>
+              <p class="is-size-7">The base policy is frozen while a residual policy is optimized under stringent motor
+                constraints...</p>
+            </div>
+            <div class="method-text-box">
+              <h4 class="title is-6 mb-2" style="color: #d97706;">DEPLOYMENT</h4>
+              <p class="is-size-7">The whole inference pipeline is real-time and executed entirely onboard...</p>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-
-    </div>
-  </section>
-
-  <section class="section" id="results">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 section-title">Real-world Experiment</h2>
-
-      <div class="content-card">
-        <h3 class="motion-title">Motion 1</h3>
-        <div class="columns">
-          <div class="column is-6">
-            <p class="card-caption">GMR</p>
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/real/002778_GMR_real.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="column is-6">
-            <p class="card-caption">NMR</p>
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/real/002778_NMR_real.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-
-      <div class="content-card">
-        <h3 class="motion-title">Motion 2</h3>
-        <div class="columns">
-          <div class="column is-6">
-            <p class="card-caption">GMR</p>
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/real/002853_GMR_real.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="column is-6">
-            <p class="card-caption">NMR</p>
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/real/002853_NMR_real.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-
-      <div class="content-card">
-        <h3 class="motion-title">Motion 3</h3>
-        <div class="columns">
-          <div class="column is-6">
-            <p class="card-caption">GMR</p>
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/real/007294_GMR_real.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="column is-6">
-            <p class="card-caption">NMR</p>
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/real/007294_NMR_real.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-
-      <div class="content-card">
-        <h3 class="motion-title">Motion 4</h3>
-        <div class="columns">
-          <div class="column is-6">
-            <p class="card-caption">GMR</p>
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/real/040223_GMR_real.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="column is-6">
-            <p class="card-caption">NMR</p>
-            <video autoplay loop muted playsinline>
-              <source src="static/videos/real/040223_NMR_real.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section" id="method">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 section-title">Method</h2>
-      <div class="method-container columns is-vcentered">
-        <div class="column is-7">
-          <img src="https://via.placeholder.com/800x600.png?text=Method+Architecture" alt="Method architecture">
-        </div>
-        <div class="column is-5">
-          <div class="method-text-box">
-            <h4 class="title is-6 mb-2" style="color: #d97706;">PRE-TRAINING</h4>
-            <p class="is-size-7">A unified base policy is trained via DAgger-based Flow Matching to aggregate diverse
-              motion priors from different motion tracking experts.</p>
-          </div>
-          <div class="method-text-box">
-            <h4 class="title is-6 mb-2" style="color: #d97706;">POST-TRAINING</h4>
-            <p class="is-size-7">The base policy is frozen while a residual policy is optimized under stringent motor
-              constraints...</p>
-          </div>
-          <div class="method-text-box">
-            <h4 class="title is-6 mb-2" style="color: #d97706;">DEPLOYMENT</h4>
-            <p class="is-size-7">The whole inference pipeline is real-time and executed entirely onboard...</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="citation">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 section-title">Citation</h2>
-      <div class="bibtex-box">
-        <button class="button is-small" style="position: absolute; top: 20px; right: 20px;" onclick="copyBib()">
-          <span class="icon"><i class="fas fa-copy"></i></span><span>Copy BibTeX</span>
-        </button>
-        <pre><code id="bibtex-content">@article{zhao2026NMR,
+    <section class="section" id="citation">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 section-title">Citation</h2>
+        <div class="bibtex-box">
+          <button class="button is-small" style="position: absolute; top: 20px; right: 20px;" onclick="copyBib()">
+            <span class="icon"><i class="fas fa-copy"></i></span><span>Copy BibTeX</span>
+          </button>
+          <pre><code id="bibtex-content">@article{zhao2026NMR,
   title={Make Tracking Easy: Neural Motion Retargeting for Humanoid Whole-body Control },
   author={Qingrui Zhao and KaiyueYang and Yi Lu and  Xiyu Wang and Xinfang Zhang and Wei Yin and Qiu Shen and Xiao-Xiao Long and Xun Cao},
   journal={arXiv preprint arXiv:},
   year={2026}
 }</code></pre>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <script>
     function copyBib() {
