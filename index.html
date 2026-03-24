@@ -717,7 +717,11 @@
       <div class="container is-max-desktop">
         <h2 class="title is-3 section-title">Citation</h2>
         <div class="bibtex-box">
-          <pre><code>@article{zhao2026maketrackingeasy,
+          <button id="copy-citation-btn" class="button is-small" style="position: absolute; top: 20px; right: 20px;"
+            onclick="copyCitationBibtex()">
+            <span class="icon"><i class="fas fa-copy"></i></span><span>Copy BibTeX</span>
+          </button>
+          <pre><code id="citation-bibtex-content">@article{zhao2026maketrackingeasy,
       title={Make Tracking Easy: Neural Motion Retargeting for Humanoid Whole-body Control},
       author={Qingrui Zhao and Kaiyue Yang and Xiyu Wang and Shiqi Zhao and Yi Lu and Xinfang Zhang and Wei Yin and Qiu Shen and Xiao-Xiao Long and Xun Cao},
       journal={arXiv preprint arXiv:2603.22201},
@@ -728,6 +732,25 @@
       </div>
     </section>
   </div>
+
+  <script>
+    async function copyCitationBibtex() {
+      const bibtex = document.getElementById('citation-bibtex-content');
+      const button = document.getElementById('copy-citation-btn');
+      if (!bibtex || !button) return;
+
+      try {
+        await navigator.clipboard.writeText(bibtex.innerText);
+        const oldLabel = button.innerHTML;
+        button.innerHTML = '<span class="icon"><i class="fas fa-check"></i></span><span>Copied</span>';
+        setTimeout(() => {
+          button.innerHTML = oldLabel;
+        }, 1200);
+      } catch (e) {
+        console.error('Failed to copy citation BibTeX.', e);
+      }
+    }
+  </script>
 
 </body>
 
